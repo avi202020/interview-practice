@@ -31,7 +31,7 @@ function partition(arr, left, right, pivot) {
 // out-of-place version of quicksort
 function basicQuickSort(arr) {
   if (arr.length <= 1) return arr
-  
+
   const i = Math.floor(Math.random() * arr.length)
   const pivot = arr.splice(i, 1)
   const left = []
@@ -45,8 +45,10 @@ function basicQuickSort(arr) {
   return [...sortedLeft, ...pivot, ...sortedRight]
 }
 
+// mergesort
+
 function mergeSort(arr) {
-  if (arr.length <=1) return arr
+  if (arr.length <= 1) return arr
 
   const mid = Math.floor(arr.length / 2)
   const left = mergeSort(arr.slice(0, mid))
