@@ -18,4 +18,11 @@ function reverseExc(str) {
 
   return filtered.join("")
 }
-console.log(reverseExc("hello there"))
+
+// reverse a number
+
+function reverseInt(n) {
+  const string = n < 0 ? (0 - n).toString() : n.toString()
+  const reverse = string.split("").reduce((acc, current) => current + acc);
+  return n < 0 ? (0 - parseInt(reverse)) : parseInt(reverse);
+}
