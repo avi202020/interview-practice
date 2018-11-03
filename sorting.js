@@ -1,20 +1,49 @@
-function quickSort(arr) {
-  if (arr.length <= 1) return arr
+// quicksort with hoare's partitioning scheme
 
-  let i = Math.floor(Math.random() * arr.length)
-  let pivot = arr.splice(i, 1)
-  let left = []
-  let right = []
+function quicksort(arr, left = 0, right = arr.length - 1) {
+  if (left >= right) return arr;
+  const pivot = arr[Math.floor((right + left) / 2)];
+  const index = partition(arr, left, right, pivot);
+  quicksort(arr, left, index - 1);
+  quicksort(arr, index, right);
+  return arr;
+}
+
+function partition(arr, left, right, pivot) {
+  while (left <= right) {
+    while (arr[left] < pivot) {
+      left++;
+    }
+
+    while (arr[right] > pivot) {
+      right --;
+    }
+
+    if (left <= right) {
+      [arr[left], arr[right]] = [arr[right], arr[left]];
+      left++;
+      right--;
+    }
+  }
+  return left;
+}
+
+// out-of-place version of quicksort
+function basicQuickSort(arr) {
+  if (arr.length <= 1) return arr
+  
+  const i = Math.floor(Math.random() * arr.length)
+  const pivot = arr.splice(i, 1)
+  const left = []
+  const right = []
 
   arr.forEach(n => n < pivot ? left.push(n) : right.push(n))
 
-  let sortedLeft = quickSort(left)
-  let sortedRight = quickSort(right)
+  const sortedLeft = quickSort(left)
+  const sortedRight = quickSort(right)
 
   return [...sortedLeft, ...pivot, ...sortedRight]
 }
-
-
 
 function mergeSort(arr) {
   if (arr.length <=1) return arr
