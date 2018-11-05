@@ -36,7 +36,7 @@ function lexicographic(arr) {
   const permutations = [arr];
 
   while (!finished) {
-    permutation = makePermutation(permutation)
+    permutation = makePermutation(permutation);
 
     if (!permutation) {
       finished = true;

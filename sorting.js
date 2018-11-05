@@ -74,7 +74,7 @@ function merge(left, right) {
 // insertion sort
 
 function insertionSort(arr) {
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 1; i < arr.length; i++) {
     checkAndSwap(arr, i);
   }
   return arr;
@@ -98,5 +98,5 @@ function makeArray(n) {
   return arr;
 }
 
-let arr = makeArray(5000);
+let arr = makeArray(500);
 console.log(insertionSort(arr));
