@@ -70,3 +70,33 @@ function merge(left, right) {
     return [first, ...newArray]
   }
 }
+
+// insertion sort
+
+function insertionSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    checkAndSwap(arr, i);
+  }
+  return arr;
+}
+
+function checkAndSwap(arr, i) {
+  if (arr[i] < arr[i - 1]) {
+    [arr[i - 1], arr[i]] = [arr[i], arr[i - 1]];
+    checkAndSwap(arr, i - 1);
+  }
+}
+
+function makeArray(n) {
+  const arr = [];
+  let i = 0;
+
+  while(i < n) {
+    arr.push(Math.floor(Math.random() * n));
+    i++;
+  }
+  return arr;
+}
+
+let arr = makeArray(5000);
+console.log(insertionSort(arr));
