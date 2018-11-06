@@ -133,7 +133,7 @@ class LinkedList {
 
   remove(value) {
     if (this.length === 0) return undefined
-    if (vale === this.head.value) return this.removeFromHead()
+    if (value === this.head.value) return this.removeFromHead()
 
     let previous = this.head
     let current = previous.next
