@@ -12,4 +12,4 @@ function tower(num, from, aux, to) {
   }
 }
 
-tower(10, "a", "b", "c");
+tower(5, "a", "b", "c");
